@@ -1,16 +1,13 @@
 style.css
-body{
+body {
     margin: 0;
     padding: 0;
     text-align: center;
     font-family: sans-serif;
-    height: 100vh;
-    background-image: url(../);
-    background-size: cover;
-    background-repeat: non-repeat;
 }
+
 div{
-    widht: 500px;
+    width: 500px;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -19,8 +16,12 @@ div{
     padding: 5px;
     box-shadow: 2ppx 2px 20px #919191;
 }
+img{
+    width: 500px;
+    height: 300px;
+}
 h2{
-    font-size: 30px;
+    font-size: 40px;
     font-weight: 600;
     color: #fff;
 }
@@ -30,12 +31,45 @@ margin-left: 100px;
 color:#fff;
 }
 #weight, #height{
-    color: #fff;
+    color: #341f97 ;
     text-align: left;
     font-size: 20px;
     font-weight: 200;
     border: 1px solid #fff;
     width: 300px;
-    ba
+    background-color: antiquewhite;
+    border-radius: 2px;
+    outline: none;
+}
+#result{
+color: #fff;
+}
+#btn{
+    font-size: inherit;
+    margin-top: 10px;
+    border: none;
+    background-color: #828588;
+    width: 100px;
+    padding: 10px;
+    outline: none;
+    cursor: pointer;
+    border-radius: 2px;
+}
+#btn:hover{
+    box-shadow: 1px 1px 10px #341f97;
+}
+#info{
+    color: #fff;
+}
 
+.image-container {
+    display: flex; /* Enables Flexbox */
+    justify-content: space-around; /* Adds space around the content */
+    align-items: center; /* Vertically centers the image */
+    height: 100vh; /* Makes the container full height */
+    text-align: center; /* Ensures proper text alignment */
+}
+
+img {
+    margin: auto; /* Optional: Center the image further within the container */
 }

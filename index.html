@@ -3,11 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta http-eqiv="X-UA_compatible" contnt="IE=edge">
-    <meta name="viewport" content=""weidth-device-width, initial-scale="1.0">
+    <meta name="viewport" content="weidth-device-width, initial-scale=1.0">
     <title>BMI Calculator </title>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <div class="image-container">
+    <img src="/image/yoga.jpg" alt="Girl in a jacket" style="width:500px;height:600px;">
+</div>
+
     <div> 
        
     <h2>BMI CALCULATOR</h2>
@@ -16,9 +20,18 @@
     <p class="text">Weight</p>
     <input type="text" id="weight">
     <p id="result"></p>
-    <button id ="btn" onclicks="bmi()">Calculate</button>
-    <p id="info">Please enter height [cm] and weight [kg]</p>
+    <button id ="btn" onClick="bmi()">Calculate</button>
+    <p id="info">Please enter height in [cm] and weight [kg]</p>
+    
      </div> 
-     <div class="class"></div>
 </body>
+<script>
+    function bmi(){
+        var h = document.getElementById('height').value;
+        var w = document.getElementById('weight').value;
+        var bmi= w /(h / 100 * h / 100);
+        var total = bmi.toFixed(2);
+        document.getElementById('result').innerHTML = "Your BMI is "+ total
+    }
+</script>
 </html>
