@@ -24,20 +24,20 @@
                 <input type="text" id="age">
                 <p class="text">Gender</p>
                 <select id="gender">
-                    <option value="">--Select--</option>
+                    <option value=""> </option>
                     <option value ="male">Male</option>
                     <option value ="female">Female</option>
                     <option value="Other">Other</option>
                 </select>
                 <p id="result"></p>
-                <button id="btn" onClick="bmi()">Calculate</button>
+                <button id="btn" onClick="bmiCalculate()">Calculate</button>
             </div>
 
             <div class="image-container">
-                <div class="bmi-image-container">
-                    <img src="/image/bmi-chart (1).jpg" alt="BMI Chart"
-                        class="bmi-image">
-                    <div class="bmi-image-overlay"></div>
+                <div class="bmi-image-container" id="changeImg">
+                    <!-- <img src="/image/fit.jpg" alt="BMI Chart"
+                        class="fit">
+                    <div class="bmi-image-overlay"></div> -->
                 </div>
             </div>
         </div>
@@ -48,49 +48,64 @@
         <div id="chatbot-container">
             <h3>Fitness Chatbot</h3>
             <div id="chatbot-response"></div>
+
         </div>
         <script>
-        function bmi() {
-            var h = document.getElementById('height').value;
-            var w = document.getElementById('weight').value;
+        function bmiCalculate() {
+    console.log("test")
+    const imgContainer = document.getElementById('changeImg');
 
-            if (isNaN(h) || isNaN(w) || h === "" || w === "") {
-                document.getElementById('result').innerHTML = "Please enter valid height and weight!";
-                return;
-            }
+    var h = document.getElementById('height').value;
+    var w = document.getElementById('weight').value;
 
-            var bmi = w / (h / 100 * h / 100);
-            var total = bmi.toFixed(2);
-            document.getElementById('result').innerHTML = "Your BMI is " + total;
+    if (isNaN(h) || isNaN(w) || h === "" || w === "") {
+        document.getElementById('result').innerHTML = "Please enter valid height and weight!";
+        return;
+    }
 
-            let category = '';
-            let dietPlan = '';
+    var bmi = w / (h / 100 * h / 100);
+    var total = bmi.toFixed(2);
+    document.getElementById('result').innerHTML = "Your BMI is " + total;
 
-            if (bmi < 18.5) {
-                category = 'Underweight';
-                dietPlan = "Given your current weight, it's recommended to prioritize a diet rich in nutrient-dense foods. Incorporate lean proteins, healthy fats, whole grains, and calorie-dense snacks like avocados and nuts into your meals. Consider a meal frequency of 5-6 smaller meals per day to support your nutritional goals. It's advisable to consult with a healthcare professional for tailored guidance.";
-            }
+    let category = '';
+    let dietPlan = '';
+    let imgSrc = '';
 
-            else if (bmi >= 18.5 && bmi < 24.9) {
-                category = 'Normal weight';
-                dietPlan = "Your current BMI falls within the healthy range. To maintain your weight and overall health, continue to eat a balanced diet that includes a variety of colorful fruits and vegetables, lean protein sources, whole grains, and healthy fats. Regular physical activity is also essential.";
-            }
-             else if (bmi >= 25 && bmi < 29.9) {
-                category = 'Overweight';
-                dietPlan = "To improve your overall health and well-being, it's important to focus on a balanced diet and regular physical activity to achieve and maintain a healthy weight. Prioritize low-calorie, high-fiber foods like leafy greens, lean meats, and whole grains while limiting processed foods and added sugars. To ensure your specific needs are met, consult with a healthcare professional.";
-            }
-             else {
-                category = 'Obesity';
-                dietPlan = "To improve your overall health and well-being, it's essential to consult with a healthcare provider. They can help you develop a personalized weight loss plan that includes a balanced diet, regular physical activity, and other lifestyle changes. Remember, the goal is to achieve and maintain a healthy weight in a sustainable manner.";
-            }
+    if (bmi < 18.5) {
+        category = 'Underweight';
+        dietPlan = "Given your current weight, it's recommended to prioritize a diet rich in nutrient-dense foods. Incorporate lean proteins, healthy fats, whole grains, and calorie-dense snacks like avocados and nuts into your meals. Consider a meal frequency of 5-6 smaller meals per day to support your nutritional goals. It's advisable to consult with a healthcare professional for tailored guidance.";
+        imgSrc = "/image/underw.png";
+        toggleChatbot();
 
-            document.getElementById('chatbot-response').innerHTML = `
-                <p>Your BMI category is: ${category}</p>
-                <p>Diet Plan: ${dietPlan}</p>
-            `;
+    } else if (bmi >= 18.5 && bmi < 24.9) {
+        category = 'Normal weight';
+        dietPlan = "Your current BMI falls within the healthy range. To maintain your weight and overall health, continue to eat a balanced diet that includes a variety of colorful fruits and vegetables, lean protein sources, whole grains, and healthy fats. Regular physical activity is also essential.";
+        imgSrc = "/image/normal.jpg";
+        toggleChatbot();
 
-            toggleChatbot();
-        }
+    } else if (bmi >= 25 && bmi < 29.9) {
+        category = 'Overweight';
+        dietPlan = "To improve your overall health and well-being, it's important to focus on a balanced diet and regular physical activity to achieve and maintain a healthy weight. Prioritize low-calorie, high-fiber foods like leafy greens, lean meats, and whole grains while limiting processed foods and added sugars. To ensure your specific needs are met, consult with a healthcare professional.";
+        imgSrc = "/image/overweight.jpg";
+        toggleChatbot();
+
+    } else {
+        category = 'Obesity';
+        dietPlan = "To improve your overall health and well-being, it's essential to consult with a healthcare provider. They can help you develop a personalized weight loss plan that includes a balanced diet, regular physical activity, and other lifestyle changes. Remember, the goal is to achieve and maintain a healthy weight in a sustainable manner.";
+       imgSrc = "/image/obesity.png";
+       toggleChatbot();
+
+    }
+
+    document.getElementById('chatbot-response').innerHTML = `
+        <p>Your BMI category is: ${category}</p>
+        <p>Diet Plan: ${dietPlan}</p>
+    `;
+
+    imgContainer.innerHTML = `<img src="${imgSrc}" alt="${category} Image" class="bmi-image-container" }>`;
+
+}
+
 
         function toggleChatbot() {
             const chatbotContainer = document.getElementById("chatbot-container");
