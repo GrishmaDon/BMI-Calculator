@@ -1,75 +1,199 @@
-style.css
 body {
     margin: 0;
     padding: 0;
-    text-align: center;
     font-family: sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #D8E8F7;
 }
 
-div{
-    width: 500px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    background-color: rgba(0,0,0,0.5);
-    transform: translate(-50%, -50%);
-    padding: 5px;
-    box-shadow: 2ppx 2px 20px #919191;
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+    max-width: 1200px;
 }
-img{
+
+.calculator {
+    background-image: url('/image/yoga.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 20px;
     width: 500px;
-    height: 300px;
+    height: 750px;
+    box-shadow: 2px 2px 20px #919191;
+    text-align: center;
+    border-radius: 8px;
+    color: white;
 }
-h2{
+
+h2 {
     font-size: 40px;
     font-weight: 600;
     color: #fff;
 }
-.text{
-text-align: left;
-margin-left: 100px;
-color:#fff;
+
+.text {
+    text-align: left;
+    margin-left: 100px;
+    color: #fff;
 }
-#weight, #height{
-    color: #341f97 ;
+
+#weight,
+#height,
+#age,
+#gender {
+    color: #341f97;
     text-align: left;
     font-size: 20px;
-    font-weight: 200;
+    font-weight: 400;
     border: 1px solid #fff;
     width: 300px;
-    background-color: antiquewhite;
+    background-color: #FAEBD7;
     border-radius: 2px;
     outline: none;
+    padding: 5px;
 }
-#result{
-color: #fff;
+
+#result {
+    color: #fff;
 }
-#btn{
-    font-size: inherit;
+
+#btn {
+    font-size: 16px;
     margin-top: 10px;
     border: none;
     background-color: #828588;
     width: 100px;
     padding: 10px;
-    outline: none;
     cursor: pointer;
     border-radius: 2px;
 }
-#btn:hover{
+
+#btn:hover {
+    background-color: #341f97;
     box-shadow: 1px 1px 10px #341f97;
 }
-#info{
+
+#info {
     color: #fff;
 }
 
-.image-container {
-    display: flex; /* Enables Flexbox */
-    justify-content: space-around; /* Adds space around the content */
-    align-items: center; /* Vertically centers the image */
-    height: 100vh; /* Makes the container full height */
-    text-align: center; /* Ensures proper text alignment */
+#btn:focus,
+#weight:focus,
+#height:focus,
+#age:focus,
+#gender:focus {
+    outline: 2px solid #341f97;
+    background-color: #d1c3f0;
 }
 
-img {
-    margin: auto; /* Optional: Center the image further within the container */
+.image-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 650px;
+}
+
+.bmi-image-container {
+    position: relative;
+    width: 600px;
+    height: 450px;
+    background-color: #f0f0f0;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.bmi-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.bmi-image-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #d3d3d333;
+    pointer-events: none;
+}
+
+
+#chatbot-icon {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-color: #341f97;
+    border-radius: 50%;
+    padding: 15px;
+    cursor: pointer;
+    z-index: 1000;
+}
+
+#chatbot-icon img {
+    width: 30px;
+    height: 30px;
+    color: white;
+}
+
+#chatbot-container {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 300px;
+    height: 400px;
+    background-color: #f7ccb0;
+    box-shadow: 0 4px 20px #00000033;
+    border-radius: 8px;
+    padding: 20px;
+    display: none;
+    transition: all 0.3s ease;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+#chatbot-container.visible {
+    display: block;
+}
+
+#chatbot-input {
+    width: 100%;
+    height: 80px;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 10px;
+    font-size: 16px;
+    resize: none;
+    box-sizing: border-box;
+    background-color: #b1b1b1;
+    border: 1px solid #000000;
+}
+
+#chatbot-btn {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #341f97;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    box-sizing: border-box;
+    margin-top: 10px;
+}
+
+#chatbot-btn:hover {
+    background-color: #282c9f;
+}
+
+#chatbot-response {
+    margin-top: 10px;
+    color: #000000;
+    font-size: 16px;
+    white-space: pre-wrap;
 }
