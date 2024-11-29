@@ -98,7 +98,6 @@ h2 {
     align-items: center;
     height: 650px;
 }
-
 .bmi-image-container {
     position: relative;
     width: 600px;
@@ -196,4 +195,8 @@ h2 {
     color: #000000;
     font-size: 16px;
     white-space: pre-wrap;
+}
+
+#logo-icon{
+    transform: translate(-200px,-350px);
 }

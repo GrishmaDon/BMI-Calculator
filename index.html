@@ -1,18 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
-
     <head>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>BMI Calculator</title>
+        <title>HealthMate</title>
         <link rel="stylesheet" href="style.css">
     </head>
 
     <body>
+        <nav id="logo-icon">
+            <img src="/image/logo.png" alt="Logo Icon" width="50" />
+        </nav>
+
         <div class="container">
             <div class="calculator">
-                <h2>BMI CALCULATOR</h2>
+                <h2>HealthMate</h2>
                 <p class="text">Height (cm)</p>
                 <input type="text" id="height">
                 <p class="text">Weight (kg)</p>
@@ -20,21 +23,24 @@
                 <p class="text">Age</p>
                 <input type="text" id="age">
                 <p class="text">Gender</p>
-                <input type="text" id="gender">
+                <select id="gender">
+                    <option value="">--Select--</option>
+                    <option value ="male">Male</option>
+                    <option value ="female">Female</option>
+                    <option value="Other">Other</option>
+                </select>
                 <p id="result"></p>
                 <button id="btn" onClick="bmi()">Calculate</button>
-                <p id="info">Please enter height in [cm] and weight [kg]</p>
             </div>
 
             <div class="image-container">
                 <div class="bmi-image-container">
-                    <img src="/image/bmi-chart.jpg" alt="BMI Chart"
+                    <img src="/image/bmi-chart (1).jpg" alt="BMI Chart"
                         class="bmi-image">
                     <div class="bmi-image-overlay"></div>
                 </div>
             </div>
         </div>
-
         <div id="chatbot-icon" onclick="toggleChatbot()">
             <img src="/image/chat.png" alt="Chatbot Icon" />
         </div>
@@ -43,7 +49,6 @@
             <h3>Fitness Chatbot</h3>
             <div id="chatbot-response"></div>
         </div>
-
         <script>
         function bmi() {
             var h = document.getElementById('height').value;
